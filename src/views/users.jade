@@ -1,0 +1,36 @@
+extends ./layout
+
+block content
+  section
+    .container
+      h1 users page
+
+  section(ng-controller="UsersCtrl")
+    .container
+      form(ng-submit="addUser()")
+        table.table.table-striped
+          thead
+            tr
+              th Name
+              th Birthday
+              th Secret
+              th
+            tr
+              th
+                input(type=text,ng-model="editUser.name")
+                div(ng-repeat="error in errors.name") {{error}}
+              th
+                input(type=text,ng-model="editUser.birthday")
+                div(ng-repeat="error in errors.birthday") {{error}}
+              th
+                input(type=text,ng-model="editUser.secret")
+                div(ng-repeat="error in errors.secret") {{error}}
+              th
+                button.btn(type="submit") Add
+          tbody
+            tr(ng-repeat="user in users")
+              td {{user.name}}
+              td {{user.birthday.format("MM/DD/YYYY")}}
+              td {{user.secret}}
+              td
+                button.btn(type="button", ng-click="removeUser($index)") Remove

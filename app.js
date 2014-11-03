@@ -1,0 +1,1 @@
+require('./dest/server/index')
