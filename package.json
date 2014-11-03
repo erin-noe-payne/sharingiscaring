@@ -1,7 +1,7 @@
 {
-  "name":"experiment",
+  "name": "experiment",
   "dependencies": {
-    "scheming": "0.0.8",
+    "scheming": "0.0.9",
     "express-train": "~3.0.1-alpha",
     "express": "~4.10.1",
     "coffee-script": "~1.8.0",

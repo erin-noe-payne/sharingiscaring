@@ -1,17 +1,10 @@
 Scheming = sharedRequire 'Scheming'
 
-uuid = ->
-  now = Date.now()
-  'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace /[xy]/g, (c) ->
-    r = (now + Math.random() * 16) % 16 | 0
-    now = Math.floor now / 16
-    ((if c is "x" then r else (r & 0x7 | 0x8))).toString 16
-
 sharedExport module, ->
   Scheming.create 'User',
     id : {
       type : String
-      default : -> uuid()
+      default : Scheming.uuid
     }
     name : {
       type : String
@@ -37,6 +30,6 @@ sharedExport module, ->
           if val.match /[A-Z]/
             return true
           else
-            return "Must contain an upercase character"
+            return "Must contain an uppercase character"
       ]
     }
