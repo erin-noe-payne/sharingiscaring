@@ -2,7 +2,6 @@ gulp = require 'gulp'
 runSequence = require 'run-sequence'
 plugins = require('gulp-load-plugins')()
 bowerFiles = require 'main-bower-files'
-broswerify = require 'browserify'
 
 gulp.task 'clean', ->
   gulp.src(['dest'], read: false)
